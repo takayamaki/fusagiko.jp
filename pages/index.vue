@@ -11,7 +11,7 @@ import copyabelString from '../components/copyableString'
 
 export default {
   components: {
-    copyabelString
-  }
+    copyabelString,
+  },
 }
 </script>
