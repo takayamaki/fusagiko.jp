@@ -1,9 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <div class="page">
+      <copyabelString message="aaa" />
+    </div>
+  </div>
 </template>
 
 <script>
+import copyabelString from '../components/copyableString'
+
 export default {
-  components: {}
+  components: {
+    copyabelString
+  }
 }
 </script>
