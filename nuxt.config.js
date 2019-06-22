@@ -35,6 +35,7 @@ export default {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
     '@nuxtjs/eslint-module',
+    'nuxt-fontawesome',
   ],
   /*
    ** Build configuration
@@ -51,5 +52,13 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+  },
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+    ],
   },
 }

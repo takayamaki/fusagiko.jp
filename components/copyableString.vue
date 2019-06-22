@@ -1,6 +1,9 @@
 <template>
   <div>
-    <p @click="copyMessage(message)">{{ message }}</p>
+    <p @click="copyMessage(message)">
+      {{ message }}
+      <font-awesome-icon icon="clipboard" />
+    </p>
   </div>
 </template>
 <script>
