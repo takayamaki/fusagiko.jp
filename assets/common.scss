@@ -1,0 +1,25 @@
+.pages {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  .page {
+    scroll-snap-align: center;
+    overflow: auto;
+    height: 90vh;
+    padding: 3rem;
+    .columns {
+      height: 100%;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+  }
+
+  .page1 {
+    background-color: #17a05d;
+  }
+  .page2 {
+    background-color: #82ba63;
+  }
+  .page3 {
+    background-color: #3b89b9;
+  }
+}
