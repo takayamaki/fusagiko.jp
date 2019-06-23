@@ -5,8 +5,8 @@
         <h1 class="title">
           Links
         </h1>
-        <div class="columns">
-          <div class="column">
+        <div class="columns is-multiline">
+          <div class="column is-3-desktop is-6-tablet">
             <a href="https://twitter.com/fusagiko">
               <fa-icon :icon="['fab', 'twitter']" size="5x" />
               <div>
@@ -15,7 +15,7 @@
             </a>
           </div>
 
-          <div class="column">
+          <div class="column is-3-desktop is-6-tablet">
             <a href="https://github.com/takayamaki">
               <fa-icon :icon="['fab', 'github']" size="5x" />
               <div>
@@ -23,7 +23,7 @@
               </div>
             </a>
           </div>
-          <div class="column">
+          <div class="column is-3-desktop is-6-tablet">
             <a href="https://imastodon.net/@fusagiko">
               <fa-icon :icon="['fab', 'mastodon']" size="5x" />
               <div>
@@ -31,7 +31,7 @@
               </div>
             </a>
           </div>
-          <div class="column">
+          <div class="column is-3-desktop is-6-tablet">
             <a href="https://fusagiko.hatenablog.jp/">
               <fa-icon icon="edit" size="5x" />
               <div>
