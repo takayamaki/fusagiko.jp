@@ -62,11 +62,11 @@
               </h2>
               <externalLink
                 dest="https://www.nicovideo.jp/mylist/64464706"
-                link-str="KAKU-tail THE@TER for 765MILLIONSTARS!! スタッフ"
+                link-str="KAKU-tail THE@TER for 765MILLIONSTARS!!"
               />
               <externalLink
                 dest="https://www.nicovideo.jp/watch/sm35064420"
-                link-str="im@s MAD Survival Championship 2019 Re: スタッフ"
+                link-str="im@s MAD Survival Championship 2019 Re:"
               />
             </div>
           </div>
