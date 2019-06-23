@@ -13,6 +13,17 @@
     .columns {
       height: 100%;
       background-color: rgba($color: #fff, $alpha: 0.5);
+      border-bottom: solid #fff 1px;
+      h2 {
+        font-weight: bold;
+        span {
+          display: inline-block;
+          white-space: nowrap;
+        }
+      }
+    }
+    .columns:last-child {
+      border: none;
     }
   }
 
