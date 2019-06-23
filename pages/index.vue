@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import headerMenu from '../components/header-menu'
+import headerMenu from '../components/headerMenu'
 import page1 from '../components/page1'
 import page2 from '../components/page2'
 import page3 from '../components/page3'
