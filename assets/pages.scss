@@ -34,6 +34,11 @@
   }
   #page2 {
     background-color: #82ba63;
+
+    .columns .column div {
+      padding: 0.5rem;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
   }
   #page3 {
     background-color: #3b89b9;
