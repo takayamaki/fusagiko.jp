@@ -14,13 +14,13 @@
 
     <div id="navbar" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="#page1">
+        <a class="navbar-item" href="#profile">
           Profile
         </a>
-        <a class="navbar-item" href="#page2">
+        <a class="navbar-item" href="#works">
           Works
         </a>
-        <a class="navbar-item" href="#page3">
+        <a class="navbar-item" href="#links">
           Links
         </a>
       </div>

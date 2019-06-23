@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="page3">
+  <div class="page" id="links">
     <div class="columns">
       <div class="column">
         <copyabelString message="page1" />

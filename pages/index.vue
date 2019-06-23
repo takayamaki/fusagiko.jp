@@ -2,25 +2,25 @@
   <div class="dispaly-area">
     <headerMenu />
     <div class="pages">
-      <page1 />
-      <page2 />
-      <page3 />
+      <profile />
+      <works />
+      <links />
     </div>
   </div>
 </template>
 
 <script>
 import headerMenu from '../components/headerMenu'
-import page1 from '../components/page1'
-import page2 from '../components/page2'
-import page3 from '../components/page3'
+import profile from '../components/profile'
+import works from '../components/works'
+import links from '../components/links'
 
 export default {
   components: {
     headerMenu,
-    page1,
-    page2,
-    page3,
+    profile,
+    works,
+    links,
   },
 }
 </script>

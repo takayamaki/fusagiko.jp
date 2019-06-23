@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="page1">
+  <div class="page" id="profile">
     <div class="container">
       <div class="content is-small">
         <h2 class="title">
