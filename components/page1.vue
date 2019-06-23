@@ -43,6 +43,10 @@
         </div>
         <div class="column">
           <copyabelString message="8826634" />
+          <externalLink
+            dest="http://sp.pf.mbga.jp/12008305/?guid=ON&url=http%3A%2F%2F125.6.169.35%2Fidolmaster%2Fprofile%2Fshow%2F8826634"
+            linkStr="直接開く"
+          />
         </div>
       </div>
       <div class="columns">
@@ -75,10 +79,12 @@
 
 <script>
 import copyabelString from '../components/copyableString'
+import externalLink from '../components/externalLink'
 
 export default {
   components: {
     copyabelString,
+    externalLink,
   },
 }
 </script>
