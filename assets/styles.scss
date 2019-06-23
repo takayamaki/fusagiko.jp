@@ -1,5 +1,9 @@
 @import 'bulmaInit.scss';
 
+html {
+  overflow: auto;
+}
+
 .dispaly-area {
   height: 100vh;
 }
