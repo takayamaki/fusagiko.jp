@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@nuxtjs/bulma": "^1.2.1",
+    "bulma": "^0.7.5",
     "clipboard-copy": "^3.0.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0"
