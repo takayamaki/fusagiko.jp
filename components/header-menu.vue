@@ -14,48 +14,15 @@
 
     <div id="navbar" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
-          item
+        <a class="navbar-item" href="#page1">
+          Profile
         </a>
-
-        <a class="navbar-item">
-          item
+        <a class="navbar-item" href="#page2">
+          Works
         </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            item
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              item
-            </a>
-            <a class="navbar-item">
-              item
-            </a>
-            <a class="navbar-item">
-              item
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">
-              item
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              item
-            </a>
-            <a class="button is-light">
-              item
-            </a>
-          </div>
-        </div>
+        <a class="navbar-item" href="#page3">
+          Links
+        </a>
       </div>
     </div>
   </nav>

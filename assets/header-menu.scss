@@ -1,3 +1,7 @@
 nav {
   height: 3.25rem;
 }
+div.navbar-start {
+  flex-grow: 1;
+  justify-content: center;
+}
