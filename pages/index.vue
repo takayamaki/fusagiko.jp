@@ -1,13 +1,15 @@
 <template>
-  <div class="dispaly-area">
-    <headerMenu />
-    <div class="pages">
-      <topPage />
-      <profile />
-      <works />
-      <links />
+  <no-ssr>
+    <div class="dispaly-area">
+      <headerMenu />
+      <div class="pages">
+        <topPage />
+        <profile />
+        <works />
+        <links />
+      </div>
     </div>
-  </div>
+  </no-ssr>
 </template>
 
 <script>
