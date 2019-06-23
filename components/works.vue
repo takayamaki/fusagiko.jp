@@ -1,5 +1,5 @@
 <template>
-  <div class="page" id="works">
+  <div id="works" class="page">
     <div class="container">
       <div class="content is-small">
         <h1 class="title">
@@ -14,7 +14,7 @@
               </p>
               <externalLink
                 dest="https://imastodon.net/"
-                linkStr="imastodon.net"
+                link-str="imastodon.net"
               />
             </div>
           </div>
@@ -26,11 +26,11 @@
               </p>
               <externalLink
                 dest="https://twitter.com/clubimas"
-                linkStr="DANCE MASTER 所属DJ/VJ"
+                link-str="DANCE MASTER 所属DJ/VJ"
               />
               <externalLink
                 dest="https://twitter.com/masterbowl"
-                linkStr="M@STER BOWL 主催"
+                link-str="M@STER BOWL 主催"
               />
             </div>
           </div>
@@ -43,7 +43,7 @@
               </p>
               <externalLink
                 dest="https://imas.connpass.com/"
-                linkStr="IM@Study"
+                link-str="IM@Study"
               />
             </div>
           </div>
@@ -52,11 +52,11 @@
               <h2>ニコニコ動画アイドルマスターカテゴリ有志企画 運営スタッフ</h2>
               <externalLink
                 dest="https://www.nicovideo.jp/mylist/64464706"
-                linkStr="KAKU-tail THE@TER for 765MILLIONSTARS!! スタッフ"
+                link-str="KAKU-tail THE@TER for 765MILLIONSTARS!! スタッフ"
               />
               <externalLink
                 dest="https://www.nicovideo.jp/watch/sm35064420"
-                linkStr="im@s MAD Survival Championship 2019 Re: スタッフ"
+                link-str="im@s MAD Survival Championship 2019 Re: スタッフ"
               />
             </div>
           </div>
