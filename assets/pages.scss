@@ -1,9 +1,7 @@
 .pages {
   overflow: auto;
-  scroll-snap-type: y mandatory;
   height: calc(100vh - 3.25rem);
   .page {
-    scroll-snap-align: start;
     overflow: auto;
     min-height: 90vh;
     padding: 3rem;
