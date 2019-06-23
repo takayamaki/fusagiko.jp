@@ -2,7 +2,7 @@
   <p>
     <a :href="dest">
       {{ linkStr }}
-      <font-awesome-icon icon="external-link-alt" />
+      <fa-icon icon="external-link-alt" />
     </a>
   </p>
 </template>

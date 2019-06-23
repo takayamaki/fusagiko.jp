@@ -27,15 +27,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~plugins/FontAwesome.js', ssr: false }],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/eslint-module',
-    'nuxt-fontawesome',
-  ],
+  modules: ['@nuxtjs/eslint-module'],
   /*
    ** Build configuration
    */

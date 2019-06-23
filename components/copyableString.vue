@@ -2,7 +2,7 @@
   <div>
     <p @click="copyMessage(message)">
       {{ message }}
-      <font-awesome-icon icon="clipboard" />
+      <fa-icon icon="clipboard" />
     </p>
   </div>
 </template>
