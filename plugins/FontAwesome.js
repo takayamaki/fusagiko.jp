@@ -5,6 +5,7 @@ import {
   faClipboard,
   faExternalLinkAlt,
   faEdit,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faTwitter,
@@ -13,7 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faClipboard, faExternalLinkAlt, faEdit)
+library.add(faClipboard, faExternalLinkAlt, faEdit, faCheck)
 library.add(faTwitter, faGithub, faMastodon)
 
 Vue.component('fa-icon', FontAwesomeIcon)

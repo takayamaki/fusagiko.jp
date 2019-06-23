@@ -1,8 +1,9 @@
 <template>
   <div>
-    <p @click="copyMessage(message)">
+    <p class="copyableString" @click="copyMessage($event, message)">
       {{ message }}
-      <fa-icon icon="clipboard" />
+      <fa-icon icon="clipboard" class="is-visible" />
+      <fa-icon icon="check" />
     </p>
   </div>
 </template>
@@ -10,8 +11,19 @@
 'use strict'
 import copy from 'clipboard-copy'
 
-const copyMessage = message => {
+const copyMessage = (event, message) => {
   copy(message)
+
+  const icons = event.target.querySelectorAll('svg')
+  icons.forEach(element => {
+    element.classList.toggle('is-visible')
+  })
+
+  setTimeout(() => {
+    icons.forEach(element => {
+      element.classList.toggle('is-visible')
+    })
+  }, 1000)
 }
 
 export default {
