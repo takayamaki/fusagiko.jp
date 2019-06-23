@@ -14,7 +14,7 @@ import copy from 'clipboard-copy'
 const copyMessage = (event, message) => {
   copy(message)
 
-  const icons = event.target.querySelectorAll('svg')
+  const icons = event.target.parentNode.parentNode.querySelectorAll('svg')
   icons.forEach(element => {
     element.classList.toggle('is-visible')
   })
