@@ -8,7 +8,10 @@
         <div class="columns is-multiline">
           <div class="column is-4-desktop is-6-tablet">
             <div>
-              <h2>imastodon.net 運用運営</h2>
+              <h2>
+                <span>imastodon.net</span>
+                <span>運用運営</span>
+              </h2>
               <p>
                 アイドルマスターに興味がある人が対象のマストドンインスタンス
               </p>
@@ -20,7 +23,7 @@
           </div>
           <div class="column is-4-desktop is-6-tablet">
             <div>
-              <h2>DJ・VJ</h2>
+              <h2><span>DJ・VJ</span></h2>
               <p>
                 アイドルマスター関連楽曲を中心としたDJ/VJ活動
               </p>
@@ -36,7 +39,10 @@
           </div>
           <div class="column is-4-desktop is-6-tablet">
             <div>
-              <h2>IM@Study ボランティアスタッフ</h2>
+              <h2>
+                <span>IM@Study</span>
+                <span>ボランティアスタッフ</span>
+              </h2>
               <p>
                 アイドルマスターに興味があるエンジニアのための
                 エンジニアリングによるアイドルマスター二次創作コミュニティ
@@ -49,7 +55,11 @@
           </div>
           <div class="column is-4-desktop is-6-tablet">
             <div>
-              <h2>ニコニコ動画アイドルマスターカテゴリ有志企画 運営スタッフ</h2>
+              <h2>
+                <span>ニコニコ動画</span>
+                <span>アイドルマスターカテゴリ</span>
+                <span>有志企画運営スタッフ</span>
+              </h2>
               <externalLink
                 dest="https://www.nicovideo.jp/mylist/64464706"
                 link-str="KAKU-tail THE@TER for 765MILLIONSTARS!! スタッフ"
@@ -62,7 +72,10 @@
           </div>
           <div class="column is-4-desktop is-6-tablet">
             <div>
-              <h2>ニコニコ動画自作マイリスト</h2>
+              <h2>
+                <span>ニコニコ動画</span>
+                <span>自作マイリスト</span>
+              </h2>
               <iframe
                 height="176"
                 src="https://ext.nicovideo.jp/thumb_mylist/18098048"
