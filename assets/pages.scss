@@ -10,20 +10,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .columns {
-      height: 100%;
-      background-color: rgba($color: #fff, $alpha: 0.5);
-      border-bottom: solid #fff 1px;
-      h2 {
-        font-weight: bold;
-        span {
-          display: inline-block;
-          white-space: nowrap;
-        }
+    .content {
+      h3 span {
+        display: inline-block;
+        white-space: nowrap;
       }
-    }
-    .columns:last-child {
-      border: none;
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+      .columns {
+        background-color: rgba($color: #fff, $alpha: 0.5);
+        border-bottom: solid #fff 1px;
+      }
+      .columns:last-child {
+        border: none;
+      }
     }
   }
 
