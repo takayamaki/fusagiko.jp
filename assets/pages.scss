@@ -11,9 +11,12 @@
     justify-content: center;
     align-items: center;
     .content {
-      h3 span {
-        display: inline-block;
-        white-space: nowrap;
+      h2 {
+        margin: 0;
+        span {
+          display: inline-block;
+          white-space: nowrap;
+        }
       }
       ul {
         list-style: none;

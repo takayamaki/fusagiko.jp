@@ -2,12 +2,12 @@
   <div id="profile" class="page">
     <div class="container">
       <div class="content is-small">
-        <h2 class="title">
+        <h1 class="title">
           Profile
-        </h2>
+        </h1>
         <div class="columns">
           <div class="column">
-            <h3>名前</h3>
+            <h2>名前</h2>
           </div>
           <div class="column">
             フサギコ
@@ -15,7 +15,7 @@
         </div>
         <div class="columns">
           <div class="column">
-            <h3>担当アイドル</h3>
+            <h2>担当アイドル</h2>
           </div>
           <div class="column">
             <ul>
@@ -29,10 +29,10 @@
         </div>
         <div class="columns">
           <div class="column">
-            <h3>
+            <h2>
               <span>アイドルマスター</span>
               <span>シンデレラガールズ</span>
-            </h3>
+            </h2>
           </div>
           <div class="column">
             <copyabelString message="8826634" />
@@ -44,11 +44,11 @@
         </div>
         <div class="columns">
           <div class="column">
-            <h3>
+            <h2>
               <span>アイドルマスター</span>
               <span>シンデレラガールズ</span>
               <span>スターライトステージ</span>
-            </h3>
+            </h2>
           </div>
           <div class="column">
             <copyabelString message="636583127" />
@@ -56,11 +56,11 @@
         </div>
         <div class="columns">
           <div class="column">
-            <h3>
+            <h2>
               <span>アイドルマスター</span>
               <span>ミリオンライブ</span>
               <span>シアターデイズ</span>
-            </h3>
+            </h2>
           </div>
           <div class="column">
             <copyabelString message="N52PNABD" />
