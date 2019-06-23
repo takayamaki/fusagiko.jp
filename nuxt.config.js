@@ -48,12 +48,4 @@ export default {
      */
     extend(config, ctx) {},
   },
-  fontawesome: {
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas'],
-      },
-    ],
-  },
 }
