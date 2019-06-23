@@ -1,11 +1,11 @@
 .pages {
   overflow: auto;
   scroll-snap-type: y mandatory;
-  height: 100vh;
+  height: calc(100vh - 3.25rem);
   .page {
     scroll-snap-align: center;
     overflow: auto;
-    height: 90vh;
+    min-height: 90vh;
     padding: 3rem;
     .columns {
       height: 100%;
