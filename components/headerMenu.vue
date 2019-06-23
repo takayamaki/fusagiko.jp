@@ -14,6 +14,9 @@
 
     <div id="navbar" class="navbar-menu">
       <div class="navbar-start">
+        <a class="navbar-item" href="#top">
+          Top
+        </a>
         <a class="navbar-item" href="#profile">
           Profile
         </a>
