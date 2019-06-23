@@ -1,4 +1,4 @@
-@import 'bulmaInit.scss';
+@import 'bulmaInit';
 
 html {
   overflow: auto;
@@ -8,6 +8,6 @@ html {
   height: 100vh;
 }
 
-@import 'pages.scss';
-@import 'headerMenu.scss';
+@import 'pages';
+@import 'headerMenu';
 @import 'copyableString';
