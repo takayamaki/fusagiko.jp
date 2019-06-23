@@ -1,8 +1,5 @@
 export default {
   mode: 'universal',
-  /*
-   ** Headers of the page
-   */
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -16,25 +13,10 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
   css: ['~/assets/styles.scss'],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: [{ src: '~/plugins/FontAwesome.js', ssr: false }],
-  /*
-   ** Nuxt.js modules
-   */
   modules: ['@nuxtjs/eslint-module'],
-  /*
-   ** Build configuration
-   */
   build: {
     postcss: {
       preset: {
@@ -43,9 +25,6 @@ export default {
         },
       },
     },
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {},
   },
   generate: {
