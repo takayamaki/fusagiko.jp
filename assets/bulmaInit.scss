@@ -5,5 +5,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 $family-sans-serif: 'Nunito', sans-serif;
-
-@import '~bulma';
+@import '~bulma/sass/utilities/_all';
+@import '~bulma/sass/base/_all';
+@import '~bulma/sass/components/navbar';
+@import '~bulma/sass/elements/title';
+@import '~bulma/sass/elements/container';
+@import '~bulma/sass/grid/columns';
