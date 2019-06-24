@@ -3,7 +3,7 @@
   height: calc(100vh - 3.25rem);
   .page {
     overflow: auto;
-    min-height: 90vh;
+    min-height: calc(100vh - 3.25rem);
     padding: 3rem;
     display: flex;
     justify-content: center;
