@@ -10,7 +10,6 @@
     align-items: center;
     .content {
       h2 {
-        margin: 0;
         font-weight: bold;
         font-size: 1.1em;
         span {
@@ -18,42 +17,41 @@
           white-space: nowrap;
         }
       }
-      ul {
-        list-style: none;
-        margin: 0;
-      }
       .columns {
         background-color: rgba($color: #fff, $alpha: 0.5);
         border-bottom: solid #fff 1px;
-      }
-      .columns:last-child {
-        border: none;
+        &:last-child {
+          border: none;
+        }
       }
     }
-  }
 
-  #top {
-    background-color: #c3e2d0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('/background.png');
-    background-position: center center;
-  }
-  #profile {
-    background-color: #17a05d;
-  }
-  #works {
-    background-color: #82ba63;
-
-    .columns .column div {
-      padding: 0.5rem;
-      background-color: rgba($color: #fff, $alpha: 0.5);
+    &#top {
+      background-color: #c3e2d0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url('/background.png');
+      background-position: center center;
     }
-  }
-  #links {
-    background-color: #3b89b9;
-    .column {
-      text-align: center;
+
+    &#profile {
+      background-color: #17a05d;
+    }
+
+    &#works {
+      background-color: #82ba63;
+
+      .columns .column div {
+        padding: 0.5rem;
+        background-color: rgba($color: #fff, $alpha: 0.5);
+      }
+    }
+
+    &#links {
+      background-color: #3b89b9;
+      .column {
+        text-align: center;
+      }
     }
   }
 }
