@@ -3,7 +3,6 @@
     <div class="dispaly-area">
       <headerMenu />
       <div class="pages">
-        <topPage />
         <profile />
         <works />
         <links />
