@@ -12,9 +12,15 @@ import Profile from "../components/Profile.astro";
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
-<style>
+<style is:global>
   body {
     font-family: "M PLUS Rounded 1c", sans-serif;
+  }
+  a {
+    color: rgba(0, 44, 99, 0.66);
+  }
+  a:hover {
+    text-decoration: underline;
   }
 </style>
 
