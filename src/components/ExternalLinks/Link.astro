@@ -10,7 +10,12 @@ export interface Props {
 const { name, icon, href } = Astro.props.link;
 ---
 
-<style></style>
+<style>
+  i,
+  span {
+    font-size: 2rem;
+  }
+</style>
 
 <div>
   <a href={href}>
