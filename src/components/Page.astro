@@ -1,9 +1,10 @@
 ---
 export interface Props {
   backgroundColor: string;
+  title: string;
 }
 
-const { backgroundColor } = Astro.props;
+const { backgroundColor, title } = Astro.props;
 ---
 
 <style define:vars={{ backgroundColor }}>
@@ -15,8 +16,13 @@ const { backgroundColor } = Astro.props;
     background-color: var(--backgroundColor);
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  div.title {
+    font-weight: bold;
+    font-size: 2rem;
   }
   div.container {
     padding: 1rem;
@@ -28,7 +34,10 @@ const { backgroundColor } = Astro.props;
 </style>
 
 <div class="page">
-  <div class="container">
-    <slot />
+  <div>
+    <div id={title} class="title">{title}</div>
+    <div class="container">
+      <slot />
+    </div>
   </div>
 </div>
