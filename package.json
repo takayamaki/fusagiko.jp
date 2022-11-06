@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^1.2.0",
+    "@fontsource/m-plus-rounded-1c": "^4.5.10",
     "@preact/signals": "^1.1.0",
     "astro": "^1.6.0",
     "preact": "^10.7.3",

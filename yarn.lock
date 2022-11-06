@@ -366,6 +366,11 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.13.tgz#64e8825bf0ce769dac94ee39d92ebe6272020dfc"
   integrity sha512-+BoyIm4I8uJmH/QDIH0fu7MG0AEx9OXEDXnqptXCwKOlOqZiS4iraH1Nr7/ObLMokW3sOCeBNyD68ATcV9b9Ag==
 
+"@fontsource/m-plus-rounded-1c@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/m-plus-rounded-1c/-/m-plus-rounded-1c-4.5.10.tgz#d98c7df36bd593bd44bc6060c3d8afecffb52d55"
+  integrity sha512-spzDBo7ni2QyY0XaTKtu97juLq9cFgWSIQ2OpP2nAd++WCaKu1KFsobWCpSqRbBJhPXdMrbanRprcslYI6EeRg==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"

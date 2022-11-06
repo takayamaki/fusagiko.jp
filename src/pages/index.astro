@@ -1,6 +1,8 @@
 ---
 // Component Imports
 import "the-new-css-reset/css/reset.css";
+import "@fontsource/m-plus-rounded-1c";
+
 import TopPage from "../components/TopPage.astro";
 import Page from "../components/util/Page.astro";
 import LinkList from "../components/ExternalLinks.astro";
@@ -8,6 +10,12 @@ import LinkList from "../components/ExternalLinks.astro";
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
+
+<style>
+  body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+  }
+</style>
 
 <html lang="ja">
   <head>
