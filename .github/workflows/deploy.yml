@@ -2,6 +2,8 @@ name: Deploy generated website by Astro
 
 on:
   push:
+    branches:
+      - master
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
