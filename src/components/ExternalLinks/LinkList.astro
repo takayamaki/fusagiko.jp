@@ -7,11 +7,12 @@ export interface Props {
   }[];
 }
 
+import Container from "../Continer.astro";
 import Link from "./Link.astro";
 
 const { links } = Astro.props;
 ---
 
-<div>
+<Container>
   {links.map((link: Props["links"][number]) => <Link link={link} />)}
-</div>
+</Container>
