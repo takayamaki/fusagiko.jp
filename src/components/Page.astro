@@ -1,0 +1,25 @@
+---
+export interface Props {
+  backgroundColor: string;
+}
+
+const { backgroundColor } = Astro.props;
+---
+
+<style define:vars={{ backgroundColor }}>
+  div {
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 1rem;
+
+    background-color: var(--backgroundColor);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<div>
+  <slot />
+</div>

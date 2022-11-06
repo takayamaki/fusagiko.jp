@@ -2,7 +2,8 @@
 // Component Imports
 import "the-new-css-reset/css/reset.css";
 import TopPage from "../components/TopPage/index.astro";
-import ExternalLinks from "../components/ExternalLinks/index.astro";
+import Page from "../components/Page.astro";
+import LinkList from "../components/ExternalLinks/LinkList.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -26,35 +27,37 @@ import ExternalLinks from "../components/ExternalLinks/index.astro";
   <body>
     <main>
       <TopPage />
-      <ExternalLinks
-        links={[
-          {
-            name: "Twitter",
-            icon: "fa-brands fa-twitter",
-            href: "https://twitter.com/fusagiko",
-          },
-          {
-            name: "GitHub",
-            icon: "fa-brands fa-github",
-            href: "https://github.com/takayamaki",
-          },
-          {
-            name: "Mastodon",
-            icon: "fa-brands fa-mastodon",
-            href: "https://imastodon.net/@fusagiko",
-          },
-          {
-            name: "Blog",
-            icon: "fa-solid fa-edit",
-            href: "https://fusagiko.hatenablog.jp/",
-          },
-          {
-            name: "Mixcloud",
-            icon: "fa-solid fa-compact-disc",
-            href: "https://mixcloud.com/fusagiko/",
-          },
-        ]}
-      />
+      <Page backgroundColor="#17a05d">
+        <LinkList
+          links={[
+            {
+              name: "Twitter",
+              icon: "fa-brands fa-twitter",
+              href: "https://twitter.com/fusagiko",
+            },
+            {
+              name: "GitHub",
+              icon: "fa-brands fa-github",
+              href: "https://github.com/takayamaki",
+            },
+            {
+              name: "Mastodon",
+              icon: "fa-brands fa-mastodon",
+              href: "https://imastodon.net/@fusagiko",
+            },
+            {
+              name: "Blog",
+              icon: "fa-solid fa-edit",
+              href: "https://fusagiko.hatenablog.jp/",
+            },
+            {
+              name: "Mixcloud",
+              icon: "fa-solid fa-compact-disc",
+              href: "https://mixcloud.com/fusagiko/",
+            },
+          ]}
+        />
+      </Page>
     </main>
   </body>
 </html>
