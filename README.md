@@ -1,11 +1,9 @@
-# Astro + Preact Example
+# fusagiko.jp
+
+SSG for https://fusagiko.jp by [Astro](https://astro.build/)
+
+## Usage
 
 ```
-npm create astro@latest -- --template framework-preact
+yarn dev
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/framework-preact)
-
-This example showcases Astro working with [Preact](https://preactjs.com).
-
-Write your Preact components as `.jsx` or `.tsx` files in your project.
