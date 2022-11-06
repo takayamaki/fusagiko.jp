@@ -1,0 +1,30 @@
+---
+export interface Props {
+  links: {
+    name: string;
+    icon: string;
+    href: string;
+  }[];
+}
+
+import LinkList from "./LinkList.astro";
+
+const { links } = Astro.props;
+---
+
+<style>
+  div {
+    min-height: 100vh;
+    min-width: 100vw;
+
+    background-color: #17a05d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<div>
+  <LinkList links={links} />
+</div>
