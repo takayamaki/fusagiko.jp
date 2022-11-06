@@ -1,0 +1,18 @@
+---
+export interface Props {
+  links: {
+    name: string;
+    icon: string;
+    href: string;
+  }[];
+}
+
+import Container from "./util/Continer.astro";
+import Link from "./ExternalLinks/Link.astro";
+
+const { links } = Astro.props;
+---
+
+<Container>
+  {links.map((link: Props["links"][number]) => <Link link={link} />)}
+</Container>

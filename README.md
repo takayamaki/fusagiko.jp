@@ -1,22 +1,11 @@
-# fusagiko.jp
+# Astro + Preact Example
 
-> My praiseworthy Nuxt.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+```
+npm create astro@latest -- --template framework-preact
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/framework-preact)
+
+This example showcases Astro working with [Preact](https://preactjs.com).
+
+Write your Preact components as `.jsx` or `.tsx` files in your project.

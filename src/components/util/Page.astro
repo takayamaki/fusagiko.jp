@@ -1,0 +1,46 @@
+---
+export interface Props {
+  backgroundColor: string;
+  title: string;
+}
+
+const { backgroundColor, title } = Astro.props;
+---
+
+<style define:vars={{ backgroundColor }}>
+  div.page {
+    min-height: 90vh;
+    width: 100%;
+    padding: 1rem;
+
+    background-color: var(--backgroundColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  div.title {
+    font-weight: bold;
+    font-size: 3.5rem;
+  }
+  div.contents {
+    padding: 1rem 0rem;
+    font-size: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+</style>
+
+<div class="page">
+  <div>
+    <div id={title} class="title">{title}</div>
+    <div class="contents">
+      <slot />
+    </div>
+  </div>
+</div>

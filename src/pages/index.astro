@@ -1,0 +1,75 @@
+---
+// Component Imports
+import "the-new-css-reset/css/reset.css";
+import "@fontsource/m-plus-rounded-1c";
+
+import TopPage from "../components/TopPage.astro";
+import Page from "../components/util/Page.astro";
+import LinkList from "../components/ExternalLinks.astro";
+import Profile from "../components/Profile.astro";
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<style>
+  body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+  }
+</style>
+
+<html lang="ja">
+  <head>
+    <title>fusagiko</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerPolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main>
+      <TopPage />
+      <Page backgroundColor="#17a05d" title="Profile">
+        <Profile />
+      </Page>
+      <Page backgroundColor="#3b89b9" title="Links">
+        <LinkList
+          links={[
+            {
+              name: "Twitter",
+              icon: "fa-brands fa-twitter",
+              href: "https://twitter.com/fusagiko",
+            },
+            {
+              name: "GitHub",
+              icon: "fa-brands fa-github",
+              href: "https://github.com/takayamaki",
+            },
+            {
+              name: "Mastodon",
+              icon: "fa-brands fa-mastodon",
+              href: "https://imastodon.net/@fusagiko",
+            },
+            {
+              name: "Blog",
+              icon: "fa-solid fa-edit",
+              href: "https://fusagiko.hatenablog.jp/",
+            },
+            {
+              name: "Mixcloud",
+              icon: "fa-solid fa-compact-disc",
+              href: "https://mixcloud.com/fusagiko/",
+            },
+          ]}
+        />
+      </Page>
+    </main>
+  </body>
+</html>
