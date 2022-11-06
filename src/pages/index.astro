@@ -6,6 +6,7 @@ import "@fontsource/m-plus-rounded-1c";
 import TopPage from "../components/TopPage.astro";
 import Page from "../components/util/Page.astro";
 import LinkList from "../components/ExternalLinks.astro";
+import Profile from "../components/Profile.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -35,7 +36,10 @@ import LinkList from "../components/ExternalLinks.astro";
   <body>
     <main>
       <TopPage />
-      <Page backgroundColor="#17a05d" title="Links">
+      <Page backgroundColor="#17a05d" title="Profile">
+        <Profile />
+      </Page>
+      <Page backgroundColor="#3b89b9" title="Links">
         <LinkList
           links={[
             {

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<style>
+  dt {
+    font-weight: 600;
+  }
+  dd {
+    margin-left: 1.5rem;
+  }
+</style>
+
+<dt>{name}</dt>
+<dd><slot /></dd>
