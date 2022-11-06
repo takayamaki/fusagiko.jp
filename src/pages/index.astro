@@ -1,23 +1,24 @@
 ---
 // Component Imports
-import TopPage from '../components/TopPage/index.astro';
-import "the-new-css-reset/css/reset.css"
+import "the-new-css-reset/css/reset.css";
+import TopPage from "../components/TopPage/index.astro";
+import Links from "../components/Links/index.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="ja">
-	<head>
+  <head>
     <title>fusagiko</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
-	</head>
-	<body>
-		<main>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <main>
       <TopPage />
-		</main>
-	</body>
+    </main>
+  </body>
 </html>

@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier -w"
   },
   "dependencies": {
     "@astrojs/preact": "^1.2.0",
@@ -16,5 +17,9 @@
     "astro": "^1.6.0",
     "preact": "^10.7.3",
     "the-new-css-reset": "^1.7.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.7.0"
   }
 }
