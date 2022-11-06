@@ -7,7 +7,7 @@ const { backgroundColor } = Astro.props;
 ---
 
 <style define:vars={{ backgroundColor }}>
-  div {
+  div.page {
     min-height: 100vh;
     min-width: 100vw;
     padding: 1rem;
@@ -18,8 +18,17 @@ const { backgroundColor } = Astro.props;
     justify-content: center;
     align-items: center;
   }
+  div.container {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 0.5rem;
+
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  }
 </style>
 
-<div>
-  <slot />
+<div class="page">
+  <div class="container">
+    <slot />
+  </div>
 </div>
