@@ -1,21 +1,23 @@
 ---
+export interface Props {
+  idols: {
+    name: string;
+    href: string;
+  }[];
+}
+
 import Container from "./util/Continer.astro";
+import IdolList from "./Profile/IdolList.astro";
 import ProfileItem from "./Profile/ProfileItem.astro";
+
+const { idols } = Astro.props;
 ---
 
 <Container>
   <dl>
     <ProfileItem name="名前">フサギコ</ProfileItem>
     <ProfileItem name="担当アイドル">
-      <ul>
-        <li>秋月 律子</li>
-        <li>荒木 比奈</li>
-        <li>上条 春菜</li>
-        <li>鷹富士 茄子</li>
-        <li>久川 颯</li>
-        <li>黛 冬優子</li>
-        <li>三峰 結華</li>
-      </ul>
+      <IdolList idols={idols} />
     </ProfileItem>
     <ProfileItem name="モバマス">8826634</ProfileItem>
     <ProfileItem name="デレステ">636583127</ProfileItem>
