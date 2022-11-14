@@ -43,7 +43,38 @@ import Profile from "../components/Profile.astro";
     <main>
       <TopPage />
       <Page backgroundColor="#17a05d" title="Profile">
-        <Profile />
+        <Profile
+          idols={[
+            {
+              name: "秋月 律子",
+              href: "https://idollist.idolmaster-official.jp/detail/10001",
+            },
+            {
+              name: "荒木 比奈",
+              href: "https://idollist.idolmaster-official.jp/detail/20012",
+            },
+            {
+              name: "上条 春菜",
+              href: "https://idollist.idolmaster-official.jp/detail/20041",
+            },
+            {
+              name: "鷹富士 茄子",
+              href: "https://idollist.idolmaster-official.jp/detail/20100",
+            },
+            {
+              name: "久川 颯",
+              href: "https://idollist.idolmaster-official.jp/detail/20132",
+            },
+            {
+              name: "黛 冬優子",
+              href: "https://idollist.idolmaster-official.jp/detail/50020",
+            },
+            {
+              name: "三峰 結華",
+              href: "https://idollist.idolmaster-official.jp/detail/50021",
+            },
+          ]}
+        />
       </Page>
       <Page backgroundColor="#3b89b9" title="Links">
         <LinkList

@@ -1,0 +1,20 @@
+---
+export interface Props {
+  idols: {
+    name: string;
+    href: string;
+  }[];
+}
+
+const { idols } = Astro.props;
+---
+
+<ul>
+  {
+    idols.map((idol: Props["idols"][number]) => (
+      <li>
+        <a href={idol.href}>{idol.name}</a>
+      </li>
+    ))
+  }
+</ul>
