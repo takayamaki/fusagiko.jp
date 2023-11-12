@@ -13,7 +13,7 @@
     "format": "prettier --plugin=prettier-plugin-astro -w src/"
   },
   "dependencies": {
-    "@fontsource/m-plus-rounded-1c": "^4.5.10",
+    "@fontsource/m-plus-rounded-1c": "^5.0.0",
     "astro": "^1.9.2",
     "preact": "^10.19.1",
     "the-new-css-reset": "^1.11.1"
