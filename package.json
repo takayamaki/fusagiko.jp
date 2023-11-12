@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier -w"
+    "lint": "prettier --plugin=prettier-plugin-astro -c src/",
+    "format": "prettier --plugin=prettier-plugin-astro -w src/"
   },
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^4.5.10",
