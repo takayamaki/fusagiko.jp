@@ -26,16 +26,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: install packages
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: build
-        run: yarn build
+        run: pnpm build
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
