@@ -7,6 +7,7 @@ import TopPage from "../components/TopPage.astro";
 import Page from "../components/util/Page.astro";
 import LinkList from "../components/ExternalLinks.astro";
 import Profile from "../components/Profile.astro";
+import ogInfo from "../og_info.json";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -26,10 +27,17 @@ import Profile from "../components/Profile.astro";
 
 <html lang="ja">
   <head>
-    <title>fusagiko</title>
+    <title>{ogInfo.site_name}</title>
+    <meta name="description" content={ogInfo.description} />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={ogInfo.site_name} />
+    <meta property="og:url" content={ogInfo.url} />
+    <meta property="og:description" content={ogInfo.description} />
+    <meta property="og:type" content={ogInfo.type} />
+    <meta property="og:site_name" content={ogInfo.site_name} />
+    <meta property="og:locale" content={ogInfo.locale} />
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
     <link
       rel="stylesheet"
