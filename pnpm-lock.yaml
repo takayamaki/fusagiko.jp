@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@fontsource/m-plus-rounded-1c':
-    specifier: ^4.5.10
-    version: 4.5.10
+    specifier: ^5.0.0
+    version: 5.0.7
   astro:
     specifier: ^1.9.2
     version: 1.9.2
@@ -393,8 +393,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/m-plus-rounded-1c@4.5.10:
-    resolution: {integrity: sha512-spzDBo7ni2QyY0XaTKtu97juLq9cFgWSIQ2OpP2nAd++WCaKu1KFsobWCpSqRbBJhPXdMrbanRprcslYI6EeRg==}
+  /@fontsource/m-plus-rounded-1c@5.0.7:
+    resolution: {integrity: sha512-fvK1T8ewrN6xzGTseOA4HvemMyMuN1MoWgT2MJ3xFBStBSeJ4Vo5hya2DS5jBc7r3pk+HOIUQIjWNoOoYlGSMg==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
