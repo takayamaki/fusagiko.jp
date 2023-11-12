@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^4.5.10",
-    "astro": "^1.6.0",
-    "preact": "^10.7.3",
-    "the-new-css-reset": "^1.7.3"
+    "astro": "^1.9.2",
+    "preact": "^10.19.1",
+    "the-new-css-reset": "^1.11.1"
   },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.7.0"
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.7.2"
   }
 }
