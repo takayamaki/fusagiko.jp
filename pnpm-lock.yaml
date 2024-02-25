@@ -16,7 +16,7 @@ dependencies:
     version: 10.19.1
   the-new-css-reset:
     specifier: ^1.11.1
-    version: 1.11.1
+    version: 1.11.2
 
 devDependencies:
   prettier:
@@ -3145,8 +3145,8 @@ packages:
     dev: false
     optional: true
 
-  /the-new-css-reset@1.11.1:
-    resolution: {integrity: sha512-AsNpvcX9YkVja3ZwVYjwULYOyelhse4Atnnple2wPwrKdf3tEBXECBPAoTN+tMSFiFbi00jyprt7F9vhHornMw==}
+  /the-new-css-reset@1.11.2:
+    resolution: {integrity: sha512-m/JQ/srn+e5SAI7MVCZOJ1hoxoE1w1uA96birT52Y9769GN9e0M4K1PBxlz05Vq4HprX11ASBjM2TcQs4WXnXg==}
     dev: false
 
   /to-fast-properties@2.0.0:
