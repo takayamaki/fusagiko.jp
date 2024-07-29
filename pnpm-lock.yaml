@@ -13,7 +13,7 @@ dependencies:
     version: 4.3.5
   preact:
     specifier: ^10.19.1
-    version: 10.19.1
+    version: 10.19.6
   the-new-css-reset:
     specifier: ^1.11.1
     version: 1.11.2
@@ -2545,8 +2545,8 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /preact@10.19.1:
-    resolution: {integrity: sha512-ZSsUr6EFlwWH0btdXMj6+X+hJAZ1v+aUzKlfwBGokKB1ZO6Shz+D16LxQhM8f+E/UgkKbVe2tsWXtGTUMCkGpQ==}
+  /preact@10.19.6:
+    resolution: {integrity: sha512-gympg+T2Z1fG1unB8NH29yHJwnEaCH37Z32diPDku316OTnRPeMbiRV9kTrfZpocXjdfnWuFUl/Mj4BHaf6gnw==}
     dev: false
 
   /prebuild-install@7.1.1:
