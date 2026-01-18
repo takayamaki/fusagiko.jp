@@ -1,0 +1,30 @@
+name: build test
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+
+      - name: install packages
+        run: pnpm install --frozen-lockfile
+
+      - name: build
+        run: pnpm build
+
+      - name: checksum
+        run: test "`find dist/ -type f -exec sha1sum {} + | sort | sha1sum | cut -d ' ' -f 1`" = $EXPECTED_CHECKSUM
+        env:
+          EXPECTED_CHECKSUM: "215b7351653d3529da90476f9529f6801cbeff30"
