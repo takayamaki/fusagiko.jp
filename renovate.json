@@ -1,14 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":disableRateLimiting"
   ],
   "timezone": "Asia/Tokyo",
-  "schedule": ["every weekend"],
-  "packageRules": [{
-    "groupName": "prettier",
-    "matchPackageNames": ["prettier"],
-    "matchPackagePrefixes": ["prettier"]
-  }]
+  "schedule": [
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "groupName": "prettier",
+      "matchPackageNames": [
+        "prettier",
+        "prettier{/,}**"
+      ]
+    }
+  ]
 }
