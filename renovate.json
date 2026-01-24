@@ -2,12 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:bestpractices",
-    ":disableRateLimiting"
+    ":disableRateLimiting",
+    "security:minimumReleaseAgeNpm"
   ],
   "timezone": "Asia/Tokyo",
-  "schedule": [
-    "every weekend"
-  ],
+  "schedule": ["* 15 * * *"],
   "packageRules": [
     {
       "matchPackageNames": ["*"],
