@@ -5,7 +5,6 @@
     ":disableRateLimiting"
   ],
   "timezone": "Asia/Tokyo",
-  "schedule": ["* 15 * * *"],
   "packageRules": [
     {
       "matchPackageNames": ["*"],
