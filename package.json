@@ -20,7 +20,7 @@
     "the-new-css-reset": "^1.11.1"
   },
   "devDependencies": {
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1"
   }
 }
