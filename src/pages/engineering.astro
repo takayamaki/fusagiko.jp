@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Engineering | fusagiko"
+  description="fusagiko の Engineering ページ"
+>
+  <main>
+    <nav class="back-nav">
+      <a href="/" data-direction="right" class="back-link">
+        <span class="arrow">→</span>
+        <span>TOP</span>
+      </a>
+    </nav>
+
+    <header class="page-header">
+      <h1>Engineering</h1>
+      <p class="subtitle">Ruby / TypeScript / React / Terraform / AWS</p>
+    </header>
+
+    <section class="articles-placeholder">
+      <p>記事は準備中です。</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    gap: 3rem;
+    view-transition-name: main-content;
+  }
+
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    opacity: 0.6;
+    letter-spacing: 0.03em;
+  }
+
+  .articles-placeholder {
+    color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  .back-nav {
+    display: flex;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.875rem;
+    transition: opacity 0.15s;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .back-link .arrow {
+    font-size: 1rem;
+  }
+</style>
