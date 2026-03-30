@@ -7,27 +7,23 @@
   --vt-new: fade-in;
 }
 
-::view-transition-group(main-content) {
+/* root を使うことでビューポート全体をスナップショット対象にし
+   ページ間の要素サイズ差分によるリサイズを防ぐ */
+::view-transition-group(root) {
   animation: none;
-  overflow: visible;
 }
 
-::view-transition-image-pair(main-content) {
-  isolation: isolate;
-  overflow: visible;
-}
-
-::view-transition-old(main-content),
-::view-transition-new(main-content) {
+::view-transition-old(root),
+::view-transition-new(root) {
   animation-duration: 0.45s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   animation-fill-mode: both;
 }
 
-::view-transition-old(main-content) {
+::view-transition-old(root) {
   animation-name: var(--vt-old);
 }
-::view-transition-new(main-content) {
+::view-transition-new(root) {
   animation-name: var(--vt-new);
 }
 
