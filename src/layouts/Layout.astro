@@ -1,0 +1,110 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "the-new-css-reset/css/reset.css";
+import "@fontsource/m-plus-rounded-1c";
+import "../styles/transitions.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "fusagiko", description = "フサギコのウェブサイト" } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script>
+  // :root[attr] ::view-transition-* の先祖セレクタはChromeで機能しないため
+  // CSS カスタムプロパティ経由でアニメーション名を切り替える
+  const animMap: Record<string, [string, string]> = {
+    left: ["slide-out-left", "slide-in-left"],
+    right: ["slide-out-right", "slide-in-right"],
+    up: ["slide-out-up", "slide-in-up"],
+    down: ["slide-out-down", "slide-in-down"],
+  };
+
+  let pendingDirection: string | null = null;
+
+  function setDirectionVars(direction: string | null) {
+    const root = document.documentElement;
+    if (direction && animMap[direction]) {
+      const [oldAnim, newAnim] = animMap[direction];
+      root.style.setProperty("--vt-old", oldAnim);
+      root.style.setProperty("--vt-new", newAnim);
+    } else {
+      root.style.removeProperty("--vt-old");
+      root.style.removeProperty("--vt-new");
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = (e.target as Element).closest("a[data-direction]");
+    if (!link) return;
+    pendingDirection = (link as HTMLElement).dataset.direction ?? null;
+  });
+
+  // startViewTransition 呼び出し前に設定する (after-preparation はその直前に発火)
+  document.addEventListener("astro:after-preparation", () => {
+    setDirectionVars(pendingDirection);
+  });
+
+  // DOMスワップで inline style もリセットされる可能性があるためスワップ後にも再設定
+  document.addEventListener("astro:after-swap", () => {
+    setDirectionVars(pendingDirection);
+  });
+
+  // data-astro-transition はアニメーション完了後(finished解決後)に削除される
+  new MutationObserver(() => {
+    if (!document.documentElement.hasAttribute("data-astro-transition")) {
+      setDirectionVars(null);
+      pendingDirection = null;
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-astro-transition"],
+  });
+</script>
+
+<style is:global>
+  :root {
+    --color-base: #6b7c41;
+    --color-sub: #2e1a0e;
+    --color-passion: #660b1b;
+    --color-hero-bg: #c8f5b0;
+    --color-hero-fg: #2a8c42;
+    --color-surface: #3d2a18;
+    --color-text: #f0e8d8;
+  }
+
+  body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    background-color: var(--color-base);
+    color: var(--color-text);
+    min-height: 100vh;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
