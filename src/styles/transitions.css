@@ -9,16 +9,19 @@
 
 ::view-transition-group(main-content) {
   animation: none;
+  overflow: visible;
 }
 
 ::view-transition-image-pair(main-content) {
   isolation: isolate;
+  overflow: visible;
 }
 
 ::view-transition-old(main-content),
 ::view-transition-new(main-content) {
   animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
 }
 
 ::view-transition-old(main-content) {
@@ -48,67 +51,83 @@
 @keyframes slide-out-left {
   from {
     transform: translateX(0);
+    opacity: 1;
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-40%);
+    opacity: 0;
   }
 }
 @keyframes slide-in-left {
   from {
-    transform: translateX(100%);
+    transform: translateX(40%);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes slide-out-right {
   from {
     transform: translateX(0);
+    opacity: 1;
   }
   to {
-    transform: translateX(100%);
+    transform: translateX(40%);
+    opacity: 0;
   }
 }
 @keyframes slide-in-right {
   from {
-    transform: translateX(-100%);
+    transform: translateX(-40%);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes slide-out-down {
   from {
     transform: translateY(0);
+    opacity: 1;
   }
   to {
-    transform: translateY(100%);
+    transform: translateY(40%);
+    opacity: 0;
   }
 }
 @keyframes slide-in-down {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-40%);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes slide-out-up {
   from {
     transform: translateY(0);
+    opacity: 1;
   }
   to {
-    transform: translateY(-100%);
+    transform: translateY(-40%);
+    opacity: 0;
   }
 }
 @keyframes slide-in-up {
   from {
-    transform: translateY(100%);
+    transform: translateY(40%);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 }
