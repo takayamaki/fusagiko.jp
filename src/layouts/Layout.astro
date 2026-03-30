@@ -39,6 +39,13 @@ const { title = "fusagiko", description = "フサギコのウェブサイト" } 
     down: ["slide-out-down", "slide-in-down"],
   };
 
+  const reverseDir: Record<string, string> = {
+    left: "right",
+    right: "left",
+    up: "down",
+    down: "up",
+  };
+
   let pendingDirection: string | null = null;
 
   function setDirectionVars(direction: string | null) {
@@ -56,10 +63,29 @@ const { title = "fusagiko", description = "フサギコのウェブサイト" } 
   document.addEventListener("click", (e) => {
     const link = (e.target as Element).closest("a[data-direction]");
     if (!link) return;
-    pendingDirection = (link as HTMLElement).dataset.direction ?? null;
+    const dir = (link as HTMLElement).dataset.direction ?? null;
+    pendingDirection = dir;
+    if (dir) {
+      const from = location.href;
+      const href = (link as HTMLAnchorElement).href;
+      // ブラウザ戻る/進む用に URL ペアと方向を記憶しておく
+      sessionStorage.setItem(`vt:${from}|${href}`, dir);
+      sessionStorage.setItem(`vt:${href}|${from}`, reverseDir[dir] ?? dir);
+    }
   });
 
   // startViewTransition 呼び出し前に設定する (after-preparation はその直前に発火)
+  // ブラウザ戻る/進む時は click が発火しないため sessionStorage から方向を復元する
+  document.addEventListener("astro:before-preparation", (e) => {
+    if (pendingDirection === null) {
+      const event = e as unknown as { from: URL; to: URL };
+      const stored = sessionStorage.getItem(
+        `vt:${event.from.href}|${event.to.href}`,
+      );
+      pendingDirection = stored ?? null;
+    }
+  });
+
   document.addEventListener("astro:after-preparation", () => {
     setDirectionVars(pendingDirection);
   });
