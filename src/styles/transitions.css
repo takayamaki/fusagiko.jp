@@ -7,6 +7,14 @@
   --vt-new: fade-in;
 }
 
+::view-transition-group(main-content) {
+  animation: none;
+}
+
+::view-transition-image-pair(main-content) {
+  isolation: isolate;
+}
+
 ::view-transition-old(main-content),
 ::view-transition-new(main-content) {
   animation-duration: 0.3s;
