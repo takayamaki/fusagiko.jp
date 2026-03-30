@@ -18,9 +18,7 @@ import Layout from "../layouts/Layout.astro";
       <h1>THE IDOLM@STER</h1>
     </header>
 
-    <section class="articles-placeholder">
-      <p>記事は準備中です。</p>
-    </section>
+    <p class="empty">準備中です。</p>
   </main>
 </Layout>
 
@@ -48,11 +46,6 @@ import Layout from "../layouts/Layout.astro";
     color: var(--color-text);
   }
 
-  .articles-placeholder {
-    color: var(--color-text);
-    opacity: 0.5;
-  }
-
   .back-nav {
     display: flex;
   }
@@ -74,5 +67,10 @@ import Layout from "../layouts/Layout.astro";
 
   .back-link .arrow {
     font-size: 1rem;
+  }
+
+  .empty {
+    color: var(--color-text);
+    opacity: 0.5;
   }
 </style>

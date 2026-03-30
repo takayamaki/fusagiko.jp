@@ -1,5 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+const articles = (await getCollection("creative")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <Layout title="Creative | fusagiko" description="fusagiko の Creative ページ">
@@ -16,9 +21,32 @@ import Layout from "../layouts/Layout.astro";
       <p class="subtitle">DJ / VJ</p>
     </header>
 
-    <section class="articles-placeholder">
-      <p>記事は準備中です。</p>
-    </section>
+    {
+      articles.length > 0 ? (
+        <ul class="article-list">
+          {articles.map((article) => (
+            <li>
+              <a
+                href={`/creative/${article.id.replace(/\.md$/, "")}`}
+                data-direction="right"
+                class="article-link"
+              >
+                <time datetime={article.data.date.toISOString()}>
+                  {article.data.date.toLocaleDateString("ja-JP", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <span class="article-title">{article.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">記事は準備中です。</p>
+      )
+    }
   </main>
 </Layout>
 
@@ -53,11 +81,6 @@ import Layout from "../layouts/Layout.astro";
     letter-spacing: 0.03em;
   }
 
-  .articles-placeholder {
-    color: var(--color-text);
-    opacity: 0.5;
-  }
-
   .back-nav {
     display: flex;
   }
@@ -79,5 +102,44 @@ import Layout from "../layouts/Layout.astro";
 
   .back-link .arrow {
     font-size: 1rem;
+  }
+
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .article-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-text) 20%, transparent);
+    transition: opacity 0.15s;
+  }
+
+  .article-link:hover {
+    opacity: 0.75;
+    text-decoration: none;
+  }
+
+  time {
+    font-size: 0.75rem;
+    opacity: 0.55;
+    letter-spacing: 0.03em;
+    color: var(--color-text);
+  }
+
+  .article-title {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .empty {
+    color: var(--color-text);
+    opacity: 0.5;
   }
 </style>
