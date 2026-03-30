@@ -32,11 +32,13 @@ const { title = "fusagiko", description = "フサギコのウェブサイト" } 
 <script>
   // :root[attr] ::view-transition-* の先祖セレクタはChromeで機能しないため
   // CSS カスタムプロパティ経由でアニメーション名を切り替える
+  // data-direction は「どちら方向へ移動するか」を示す
+  // left (Engineeringへ): 古いページは右へ退場、新しいページは左から登場
   const animMap: Record<string, [string, string]> = {
-    left: ["slide-out-left", "slide-in-left"],
-    right: ["slide-out-right", "slide-in-right"],
-    up: ["slide-out-up", "slide-in-up"],
-    down: ["slide-out-down", "slide-in-down"],
+    left: ["slide-out-right", "slide-in-right"],
+    right: ["slide-out-left", "slide-in-left"],
+    up: ["slide-out-down", "slide-in-down"],
+    down: ["slide-out-up", "slide-in-up"],
   };
 
   const reverseDir: Record<string, string> = {
