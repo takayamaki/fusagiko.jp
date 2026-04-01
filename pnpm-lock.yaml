@@ -19,7 +19,7 @@ importers:
         version: 1.11.3
     devDependencies:
       playwright:
-        specifier: ^1.58.2
+        specifier: 1.58.2
         version: 1.58.2
       prettier:
         specifier: 3.8.1
@@ -28,7 +28,7 @@ importers:
         specifier: 0.14.1
         version: 0.14.1
       sharp:
-        specifier: ^0.34.5
+        specifier: 0.34.5
         version: 0.34.5
 
 packages:
