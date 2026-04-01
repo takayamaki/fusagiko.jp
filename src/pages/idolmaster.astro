@@ -1,5 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const idols = [
+  {
+    name: "秋月律子",
+    // #01A860 → APCA Lc ≈ 44.5 on surface, 微調整で Lc ≈ 51
+    color: "#00c070",
+    series: "765PRO ALLSTARS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/10001",
+  },
+  {
+    name: "上水流宇宙",
+    // #56CCF2 → APCA Lc ≈ 67、原色のまま
+    color: "#56CCF2",
+    series: "vα-liv",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/210004",
+  },
+  {
+    name: "黛冬優子",
+    // #5CE626 → APCA Lc ≈ 72、原色のまま
+    color: "#5CE626",
+    series: "SHINY COLORS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/50020",
+  },
+  {
+    name: "花海咲季",
+    // #EA4A5B → APCA Lc ≈ 37（不足）、#f07080 に微調整で Lc ≈ 47
+    color: "#f07080",
+    series: "学園アイドルマスター",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/60001",
+  },
+  {
+    name: "荒木比奈",
+    // #80C260 → APCA Lc ≈ 60、原色のまま
+    color: "#80C260",
+    series: "CINDERELLA GIRLS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/20012",
+  },
+];
 ---
 
 <Layout
@@ -18,7 +56,27 @@ import Layout from "../layouts/Layout.astro";
       <h1>THE IDOLM@STER</h1>
     </header>
 
-    <p class="empty">準備中です。</p>
+    <section class="idols-section">
+      <h2 class="section-title">担当アイドル</h2>
+      <ul class="idol-list">
+        {
+          idols.map((idol) => (
+            <li class="idol-card">
+              <a
+                class="idol-name"
+                style={`color: ${idol.color}`}
+                href={idol.meikanUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {idol.name}
+              </a>
+              <span class="idol-series">{idol.series}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
 </Layout>
 
@@ -69,8 +127,53 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1rem;
   }
 
-  .empty {
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--color-text);
-    opacity: 0.5;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  .idol-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .idol-card {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    background: var(--color-surface);
+    border-radius: 0.5rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .idol-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  .idol-name:hover {
+    filter: drop-shadow(2px 3px 4px color-mix(in srgb, currentColor 60%, black));
+    text-decoration-color: currentColor;
+  }
+
+  .idol-series {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    opacity: 0.55;
+    letter-spacing: 0.02em;
   }
 </style>
