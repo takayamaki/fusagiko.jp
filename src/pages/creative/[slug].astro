@@ -1,0 +1,190 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("creative");
+  return articles.map((article) => ({
+    params: { slug: article.id.replace(/\.md$/, "") },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<Layout
+  title={`${article.data.title} | Creative | fusagiko`}
+  description={article.data.description}
+>
+  <main>
+    <nav class="back-nav">
+      <a href="/creative" data-direction="left" class="back-link">
+        <span class="arrow">←</span>
+        <span>Creative</span>
+      </a>
+    </nav>
+
+    <article>
+      <header class="article-header">
+        <time datetime={article.data.date.toISOString()}>
+          {
+            article.data.date.toLocaleDateString("ja-JP", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+        <h1>{article.data.title}</h1>
+      </header>
+
+      <div class="article-body">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .back-nav {
+    display: flex;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.875rem;
+    transition: opacity 0.15s;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .back-link .arrow {
+    font-size: 1rem;
+  }
+
+  .article-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--color-text);
+    padding-bottom: 1.5rem;
+  }
+
+  time {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    letter-spacing: 0.03em;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .article-body {
+    color: var(--color-text);
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .article-body :global(h2) {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-body :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-body :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-body :global(li) {
+    margin-bottom: 0.25rem;
+  }
+
+  .article-body :global(ul li) {
+    list-style: disc;
+  }
+
+  .article-body :global(ol li) {
+    list-style: decimal;
+  }
+
+  .article-body :global(code) {
+    font-family: monospace;
+    background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+    padding: 0.1em 0.35em;
+    border-radius: 0.25em;
+    font-size: 0.9em;
+  }
+
+  .article-body :global(pre) {
+    background-color: var(--color-surface);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  .article-body :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .article-body :global(a) {
+    text-decoration: underline;
+    opacity: 0.85;
+  }
+
+  .article-body :global(a:hover) {
+    opacity: 1;
+  }
+
+  .article-body :global(blockquote) {
+    border-left: 3px solid var(--color-passion);
+    padding-left: 1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+
+  .article-body :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-block: 1rem;
+  }
+</style>

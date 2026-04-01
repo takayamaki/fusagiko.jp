@@ -1,0 +1,148 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const articles = (await getCollection("engineering")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout
+  title="Engineering | fusagiko"
+  description="fusagiko の Engineering ページ"
+>
+  <main>
+    <nav class="back-nav">
+      <a href="/" data-direction="right" class="back-link">
+        <span class="arrow">→</span>
+        <span>TOP</span>
+      </a>
+    </nav>
+
+    <header class="page-header">
+      <h1>Engineering</h1>
+      <p class="subtitle">Ruby / TypeScript / React / Terraform / AWS</p>
+    </header>
+
+    {
+      articles.length > 0 ? (
+        <ul class="article-list">
+          {articles.map((article) => (
+            <li>
+              <a
+                href={`/engineering/${article.id.replace(/\.md$/, "")}`}
+                data-direction="left"
+                class="article-link"
+              >
+                <time datetime={article.data.date.toISOString()}>
+                  {article.data.date.toLocaleDateString("ja-JP", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <span class="article-title">{article.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">記事は準備中です。</p>
+      )
+    }
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    opacity: 0.6;
+    letter-spacing: 0.03em;
+  }
+
+  .back-nav {
+    display: flex;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.875rem;
+    transition: opacity 0.15s;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .back-link .arrow {
+    font-size: 1rem;
+  }
+
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .article-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-text) 20%, transparent);
+    transition: opacity 0.15s;
+  }
+
+  .article-link:hover {
+    opacity: 0.75;
+    text-decoration: none;
+  }
+
+  time {
+    font-size: 0.75rem;
+    opacity: 0.55;
+    letter-spacing: 0.03em;
+    color: var(--color-text);
+  }
+
+  .article-title {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .empty {
+    color: var(--color-text);
+    opacity: 0.5;
+  }
+</style>

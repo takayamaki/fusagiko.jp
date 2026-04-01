@@ -1,5 +1,5 @@
 {
-  "name": "@example/framework-preact",
+  "name": "fusagiko.jp",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "prettier --plugin=prettier-plugin-astro -c src/",
-    "format": "prettier --plugin=prettier-plugin-astro -w src/"
+    "format": "prettier --plugin=prettier-plugin-astro -w src/",
+    "new-article": "node --experimental-strip-types scripts/new-article.ts"
   },
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^5.0.0",
@@ -20,7 +21,9 @@
     "the-new-css-reset": "^1.11.1"
   },
   "devDependencies": {
+    "playwright": "^1.58.2",
     "prettier": "3.8.1",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "sharp": "^0.34.5"
   }
 }
