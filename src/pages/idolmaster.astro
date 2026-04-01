@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import Section from "../components/Section.astro";
+import DefList from "../components/DefList.astro";
+import DefItem from "../components/DefItem.astro";
+import CopyableText from "../components/CopyableText.astro";
+import IdolList from "../components/IdolList.astro";
 
 const idols = [
   {
@@ -38,210 +44,59 @@ const idols = [
     meikanUrl: "https://idollist.idolmaster-official.jp/detail/20012",
   },
 ];
+
+const gameIds = [
+  { label: "学マス",           id: "LZMT5M9M"   },
+  { label: "ミリシタ",         id: "N52PNABD"   },
+  { label: "デレステ",         id: "636583127"  },
+  { label: "シャニマス (enza)", id: "irKpTHwkxf" },
+  { label: "シャニソン",       id: "KP2RKM9RH"  },
+];
 ---
 
 <Layout
   title="THE IDOLM@STER | fusagiko"
   description="fusagiko の THE IDOLM@STER ページ"
 >
-  <main>
-    <nav class="back-nav">
-      <a href="/" data-direction="up" class="back-link">
-        <span class="arrow">↑</span>
-        <span>TOP</span>
-      </a>
-    </nav>
+  <PageShell backHref="/" backDirection="up" title="THE IDOLM@STER">
+    <Section title="担当アイドル">
+      <IdolList idols={idols} />
+    </Section>
 
-    <header class="page-header">
-      <h1>THE IDOLM@STER</h1>
-    </header>
-
-    <section class="idols-section">
-      <h2 class="section-title">担当アイドル</h2>
-      <ul class="idol-list">
-        {
-          idols.map((idol) => (
-            <li class="idol-card">
-              <a
-                class="idol-name"
-                style={`color: ${idol.color}`}
-                href={idol.meikanUrl}
-                target="_blank"
-                rel="noopener"
-              >
-                {idol.name}
-              </a>
-              <span class="idol-series">{idol.series}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <section class="about-section">
-      <h2 class="section-title">やっていること</h2>
-      <dl class="about-list">
-        <div class="about-item">
-          <dt>
+    <Section title="やっていること">
+      <DefList>
+        <DefItem>
+          <span slot="term">
             <a href="https://imastodon.net/@fusagiko" class="about-link" target="_blank" rel="noopener">
               アイマストドン
             </a>
             管理人
-          </dt>
-          <dd>アイマスを主な話題にするマストドン</dd>
-        </div>
-        <div class="about-item">
-          <dt>
+          </span>
+          <span slot="description">アイマスを主な話題にするマストドン</span>
+        </DefItem>
+        <DefItem>
+          <span slot="term">
             <a href="/creative" class="about-link">DJ / VJ</a>
-          </dt>
-          <dd>アイマス楽曲を中心としたDJ・VJ活動</dd>
-        </div>
-      </dl>
-    </section>
+          </span>
+          <span slot="description">アイマス楽曲を中心としたDJ・VJ活動</span>
+        </DefItem>
+      </DefList>
+    </Section>
 
-    <section class="gameid-section">
-      <h2 class="section-title">ゲームID</h2>
-      <dl class="about-list">
-        {[
-          { label: "学マス",         id: "LZMT5M9M"   },
-          { label: "ミリシタ",       id: "N52PNABD"   },
-          { label: "デレステ",       id: "636583127"  },
-          { label: "シャニマス (enza)", id: "irKpTHwkxf" },
-          { label: "シャニソン",     id: "KP2RKM9RH"  },
-        ].map(({ label, id }) => (
-          <div class="about-item">
-            <dt>{label}</dt>
-            <dd class="game-id">
-              <span class="game-id-value">{id}</span>
-              <span class="game-id-icon" aria-hidden="true">
-                <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2"/>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </span>
-            </dd>
-          </div>
+    <Section title="ゲームID">
+      <DefList>
+        {gameIds.map(({ label, id }) => (
+          <DefItem>
+            <span slot="term">{label}</span>
+            <CopyableText slot="description" text={id} />
+          </DefItem>
         ))}
-
-      </dl>
-    </section>
-  </main>
+      </DefList>
+    </Section>
+  </PageShell>
 </Layout>
 
-<script>
-  document.querySelectorAll<HTMLElement>(".game-id").forEach((el) => {
-    el.addEventListener("click", async () => {
-      const value = el.querySelector(".game-id-value")?.textContent?.trim() ?? "";
-      await navigator.clipboard.writeText(value);
-      el.classList.add("copied");
-      setTimeout(() => el.classList.remove("copied"), 1500);
-    });
-  });
-</script>
-
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 3rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-    gap: 3rem;
-  }
-
-  .page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
-  }
-
-  .back-nav {
-    display: flex;
-  }
-
-  .back-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text);
-    opacity: 0.7;
-    font-size: 0.875rem;
-    transition: opacity 0.15s;
-  }
-
-  .back-link:hover {
-    opacity: 1;
-    text-decoration: none;
-  }
-
-  .back-link .arrow {
-    font-size: 1rem;
-  }
-
-  .about-list {
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 0.5rem 1rem;
-    font-size: 1rem;
-    color: var(--color-text);
-  }
-
-  .about-item {
-    display: contents;
-  }
-
-  .about-item dt::after {
-    content: ":";
-    opacity: 0.5;
-  }
-
-  .about-item dd {
-    margin: 0;
-    opacity: 0.7;
-  }
-
-  .game-id {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .game-id-value {
-    font-family: monospace;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
-  }
-
-  .game-id:hover .game-id-value {
-    text-decoration-color: currentColor;
-  }
-
-  .game-id-icon {
-    display: flex;
-    align-items: center;
-    opacity: 0.45;
-  }
-
-  .icon-check { display: none; }
-  .game-id.copied .icon-copy { display: none; }
-  .game-id.copied .icon-check { display: block; }
-  .game-id.copied .game-id-icon { opacity: 0.8; }
-
   .about-link {
     color: var(--color-text);
     text-decoration: underline;
@@ -252,68 +107,5 @@ const idols = [
   .about-link:hover {
     opacity: 1;
     text-decoration: underline;
-  }
-
-  .idols-section,
-  .about-section,
-  .gameid-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: var(--color-surface);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text);
-    opacity: 0.7;
-  }
-
-  .idol-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .idol-card {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(240, 232, 216, 0.1);
-  }
-
-  .idol-card:last-child {
-    border-bottom: none;
-  }
-
-  .idol-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    flex-shrink: 0;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
-  }
-
-  .idol-name:hover {
-    filter: drop-shadow(2px 3px 4px color-mix(in srgb, currentColor 60%, black));
-    text-decoration-color: currentColor;
-  }
-
-  .idol-series {
-    font-size: 0.8rem;
-    color: var(--color-text);
-    opacity: 0.55;
-    letter-spacing: 0.02em;
   }
 </style>

@@ -1,0 +1,78 @@
+---
+interface Idol {
+  name: string;
+  color: string;
+  series: string;
+  meikanUrl: string;
+}
+
+interface Props {
+  idols: Idol[];
+}
+
+const { idols } = Astro.props;
+---
+
+<ul class="idol-list">
+  {
+    idols.map((idol) => (
+      <li class="idol-card">
+        <a
+          class="idol-name"
+          style={`color: ${idol.color}`}
+          href={idol.meikanUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          {idol.name}
+        </a>
+        <span class="idol-series">{idol.series}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .idol-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .idol-card {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(240, 232, 216, 0.1);
+  }
+
+  .idol-card:last-child {
+    border-bottom: none;
+  }
+
+  .idol-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  .idol-name:hover {
+    filter: drop-shadow(2px 3px 4px color-mix(in srgb, currentColor 60%, black));
+    text-decoration-color: currentColor;
+  }
+
+  .idol-series {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    opacity: 0.55;
+    letter-spacing: 0.02em;
+  }
+</style>
