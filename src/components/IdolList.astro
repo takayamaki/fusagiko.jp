@@ -77,4 +77,11 @@ const { idols } = Astro.props;
     opacity: 0.55;
     letter-spacing: 0.02em;
   }
+
+  @media (max-width: 600px) {
+    .idol-card {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  }
 </style>
