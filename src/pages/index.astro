@@ -262,16 +262,7 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-  @media (max-width: 600px) {
-    main {
-      padding: 1.5rem 1rem;
-    }
-
-    .card {
-      padding: 2rem 1.5rem;
-      width: 100%;
-    }
-
+  @media (max-width: 768px) {
     .axis-nav {
       flex-direction: column;
       width: 100%;
@@ -290,6 +281,17 @@ import Layout from "../layouts/Layout.astro";
     }
     .axis-down {
       order: 3;
+    }
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 1.5rem 1rem;
+    }
+
+    .card {
+      padding: 2rem 1.5rem;
+      width: 100%;
     }
   }
 
