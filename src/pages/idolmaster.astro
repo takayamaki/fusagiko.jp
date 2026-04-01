@@ -77,6 +77,27 @@ const idols = [
         }
       </ul>
     </section>
+
+    <section class="about-section">
+      <h2 class="section-title">やっていること</h2>
+      <dl class="about-list">
+        <div class="about-item">
+          <dt>
+            <a href="https://imastodon.net/@fusagiko" class="about-link" target="_blank" rel="noopener">
+              アイマストドン
+            </a>
+            管理人
+          </dt>
+          <dd>アイマスを主な話題にするマストドン</dd>
+        </div>
+        <div class="about-item">
+          <dt>
+            <a href="/creative" class="about-link">DJ / VJ</a>
+          </dt>
+          <dd>アイマス楽曲を中心としたDJ・VJ活動</dd>
+        </div>
+      </dl>
+    </section>
   </main>
 </Layout>
 
@@ -125,6 +146,42 @@ const idols = [
 
   .back-link .arrow {
     font-size: 1rem;
+  }
+
+  .about-list {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .about-item {
+    display: contents;
+  }
+
+  .about-item dt::after {
+    content: ":";
+    opacity: 0.5;
+  }
+
+  .about-item dd {
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  .about-link {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    opacity: 0.9;
+  }
+
+  .about-link:hover {
+    opacity: 1;
+    text-decoration: underline;
   }
 
   .section-title {
