@@ -27,6 +27,7 @@ const arrow = arrowMap[backDirection] ?? "←";
 
   <header class="page-header">
     <h1>{title}</h1>
+    <hr class="header-rule" />
     <slot name="subtitle" />
   </header>
 
@@ -55,6 +56,12 @@ const arrow = arrowMap[backDirection] ?? "←";
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--color-text);
+  }
+
+  .header-rule {
+    border: none;
+    border-top: 2px solid color-mix(in srgb, var(--color-text) 60%, transparent);
+    margin: 0;
   }
 
   .back-nav {

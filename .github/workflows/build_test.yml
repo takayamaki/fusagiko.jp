@@ -25,6 +25,10 @@ jobs:
         run: pnpm build
 
       - name: checksum
-        run: test "`find dist/ -type f -exec sha1sum {} + | sort | sha1sum | cut -d ' ' -f 1`" = $EXPECTED_CHECKSUM
+        run: |
+          ACTUAL=$(find dist/ -type f -exec sha1sum {} + | sort | sha1sum | cut -d ' ' -f 1)
+          echo "actual:   $ACTUAL"
+          echo "expected: $EXPECTED_CHECKSUM"
+          test "$ACTUAL" = "$EXPECTED_CHECKSUM"
         env:
-          EXPECTED_CHECKSUM: "65e2ed72b9b0b8343f58adfd09a528d7aa8da58f"
+          EXPECTED_CHECKSUM: "b10dc4b921c2e9e2e012948cf83a2e806a9e8ed9"
