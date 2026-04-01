@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import Section from "../components/Section.astro";
 
 const articles = (await getCollection("engineering")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -11,72 +13,43 @@ const articles = (await getCollection("engineering")).sort(
   title="Engineering | fusagiko"
   description="fusagiko の Engineering ページ"
 >
-  <main>
-    <nav class="back-nav">
-      <a href="/" data-direction="right" class="back-link">
-        <span class="arrow">→</span>
-        <span>TOP</span>
-      </a>
-    </nav>
-
-    <header class="page-header">
-      <h1>Engineering</h1>
-      <p class="subtitle">Ruby / TypeScript / React / Terraform / AWS</p>
-    </header>
+  <PageShell backHref="/" backDirection="right" title="Engineering">
+    <p class="subtitle" slot="subtitle">
+      Ruby / TypeScript / React / Terraform / AWS
+    </p>
 
     {
       articles.length > 0 ? (
-        <ul class="article-list">
-          {articles.map((article) => (
-            <li>
-              <a
-                href={`/engineering/${article.id.replace(/\.md$/, "")}`}
-                data-direction="left"
-                class="article-link"
-              >
-                <time datetime={article.data.date.toISOString()}>
-                  {article.data.date.toLocaleDateString("ja-JP", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-                <span class="article-title">{article.data.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <Section title="記事">
+          <ul class="article-list">
+            {articles.map((article) => (
+              <li>
+                <a
+                  href={`/engineering/${article.id.replace(/\.md$/, "")}`}
+                  data-direction="left"
+                  class="article-link"
+                >
+                  <time datetime={article.data.date.toISOString()}>
+                    {article.data.date.toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="article-title">{article.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
       ) : (
         <p class="empty">記事は準備中です。</p>
       )
     }
-  </main>
+  </PageShell>
 </Layout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 3rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-    gap: 3rem;
-  }
-
-  .page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
-  }
-
   .subtitle {
     font-size: 0.875rem;
     color: var(--color-text);
@@ -84,30 +57,10 @@ const articles = (await getCollection("engineering")).sort(
     letter-spacing: 0.03em;
   }
 
-  .back-nav {
-    display: flex;
-  }
-
-  .back-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text);
-    opacity: 0.7;
-    font-size: 0.875rem;
-    transition: opacity 0.15s;
-  }
-
-  .back-link:hover {
-    opacity: 1;
-    text-decoration: none;
-  }
-
-  .back-link .arrow {
-    font-size: 1rem;
-  }
-
   .article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 0;
