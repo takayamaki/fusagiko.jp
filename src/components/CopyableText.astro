@@ -36,6 +36,7 @@ const { text } = Astro.props;
     >
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
+    <span class="icon-error" role="img" aria-label="コピー失敗">⚠️</span>
   </span>
 </span>
 
@@ -44,9 +45,16 @@ const { text } = Astro.props;
     el.addEventListener("click", async () => {
       const value =
         el.querySelector(".copyable-value")?.textContent?.trim() ?? "";
-      await navigator.clipboard.writeText(value);
-      el.classList.add("copied");
-      setTimeout(() => el.classList.remove("copied"), 1500);
+      let success = false;
+      try {
+        await navigator.clipboard.writeText(value);
+        success = true;
+      } catch {}
+      el.classList.add(success ? "copied" : "copy-failed");
+      setTimeout(
+        () => el.classList.remove(success ? "copied" : "copy-failed"),
+        1500,
+      );
     });
   });
 </script>
@@ -76,11 +84,13 @@ const { text } = Astro.props;
     opacity: 0.45;
   }
 
-  .icon-check {
+  .icon-check,
+  .icon-error {
     display: none;
   }
 
-  .copyable.copied .icon-copy {
+  .copyable.copied .icon-copy,
+  .copyable.copy-failed .icon-copy {
     display: none;
   }
 
@@ -88,7 +98,52 @@ const { text } = Astro.props;
     display: block;
   }
 
-  .copyable.copied .copyable-icon {
+  .copyable.copy-failed .icon-error {
+    display: inline-flex;
+    position: relative;
+    font-size: 0.85rem;
+    line-height: 1;
+    cursor: help;
+  }
+
+  .copyable.copy-failed .icon-error::after {
+    content: "許可設定を確認してください";
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3d2a18;
+    color: #f0e8d8;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 0.3rem 0.55rem;
+    border-radius: 0.35rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .copyable.copy-failed .icon-error::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #3d2a18;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .copyable.copy-failed .icon-error:hover::after,
+  .copyable.copy-failed .icon-error:hover::before {
+    opacity: 1;
+  }
+
+  .copyable.copied .copyable-icon,
+  .copyable.copy-failed .copyable-icon {
     opacity: 0.8;
   }
 </style>
