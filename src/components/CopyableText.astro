@@ -42,7 +42,8 @@ const { text } = Astro.props;
 <script>
   document.querySelectorAll<HTMLElement>(".copyable").forEach((el) => {
     el.addEventListener("click", async () => {
-      const value = el.querySelector(".copyable-value")?.textContent?.trim() ?? "";
+      const value =
+        el.querySelector(".copyable-value")?.textContent?.trim() ?? "";
       await navigator.clipboard.writeText(value);
       el.classList.add("copied");
       setTimeout(() => el.classList.remove("copied"), 1500);

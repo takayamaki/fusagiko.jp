@@ -46,11 +46,11 @@ const idols = [
 ];
 
 const gameIds = [
-  { label: "学マス",           id: "LZMT5M9M"   },
-  { label: "ミリシタ",         id: "N52PNABD"   },
-  { label: "デレステ",         id: "636583127"  },
+  { label: "学マス", id: "LZMT5M9M" },
+  { label: "ミリシタ", id: "N52PNABD" },
+  { label: "デレステ", id: "636583127" },
   { label: "シャニマス (enza)", id: "irKpTHwkxf" },
-  { label: "シャニソン",       id: "KP2RKM9RH"  },
+  { label: "シャニソン", id: "KP2RKM9RH" },
 ];
 ---
 
@@ -67,7 +67,12 @@ const gameIds = [
       <DefList>
         <DefItem>
           <span slot="term">
-            <a href="https://imastodon.net/@fusagiko" class="about-link" target="_blank" rel="noopener">
+            <a
+              href="https://imastodon.net/@fusagiko"
+              class="about-link"
+              target="_blank"
+              rel="noopener"
+            >
               アイマストドン
             </a>
             管理人
@@ -85,12 +90,14 @@ const gameIds = [
 
     <Section title="ゲームID">
       <DefList>
-        {gameIds.map(({ label, id }) => (
-          <DefItem>
-            <span slot="term">{label}</span>
-            <CopyableText slot="description" text={id} />
-          </DefItem>
-        ))}
+        {
+          gameIds.map(({ label, id }) => (
+            <DefItem>
+              <span slot="term">{label}</span>
+              <CopyableText slot="description" text={id} />
+            </DefItem>
+          ))
+        }
       </DefList>
     </Section>
   </PageShell>
