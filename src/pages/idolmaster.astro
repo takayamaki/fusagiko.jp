@@ -1,76 +1,118 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import Section from "../components/Section.astro";
+import DefList from "../components/DefList.astro";
+import DefItem from "../components/DefItem.astro";
+import CopyableText from "../components/CopyableText.astro";
+import IdolList from "../components/IdolList.astro";
+
+const idols = [
+  {
+    name: "秋月律子",
+    // #01A860 → APCA Lc ≈ 44.5 on surface, 微調整で Lc ≈ 51
+    color: "#00c070",
+    series: "765PRO ALLSTARS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/10001",
+  },
+  {
+    name: "上水流宇宙",
+    // #56CCF2 → APCA Lc ≈ 67、原色のまま
+    color: "#56CCF2",
+    series: "vα-liv",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/210004",
+  },
+  {
+    name: "黛冬優子",
+    // #5CE626 → APCA Lc ≈ 72、原色のまま
+    color: "#5CE626",
+    series: "SHINY COLORS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/50020",
+  },
+  {
+    name: "花海咲季",
+    // #EA4A5B → APCA Lc ≈ 37（不足）、#f07080 に微調整で Lc ≈ 47
+    color: "#f07080",
+    series: "学園アイドルマスター",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/60001",
+  },
+  {
+    name: "荒木比奈",
+    // #80C260 → APCA Lc ≈ 60、原色のまま
+    color: "#80C260",
+    series: "CINDERELLA GIRLS",
+    meikanUrl: "https://idollist.idolmaster-official.jp/detail/20012",
+  },
+];
+
+const gameIds = [
+  { label: "学マス", id: "LZMT5M9M" },
+  { label: "ミリシタ", id: "N52PNABD" },
+  { label: "デレステ", id: "636583127" },
+  { label: "シャニマス (enza)", id: "irKpTHwkxf" },
+  { label: "シャニソン", id: "KP2RKM9RH" },
+];
 ---
 
 <Layout
   title="THE IDOLM@STER | fusagiko"
   description="fusagiko の THE IDOLM@STER ページ"
 >
-  <main>
-    <nav class="back-nav">
-      <a href="/" data-direction="up" class="back-link">
-        <span class="arrow">↑</span>
-        <span>TOP</span>
-      </a>
-    </nav>
+  <PageShell backHref="/" backDirection="up" title="THE IDOLM@STER">
+    <Section title="担当アイドル">
+      <IdolList idols={idols} />
+    </Section>
 
-    <header class="page-header">
-      <h1>THE IDOLM@STER</h1>
-    </header>
+    <Section title="やっていること">
+      <DefList>
+        <DefItem>
+          <span slot="term">
+            <a
+              href="https://imastodon.net/@fusagiko"
+              class="about-link"
+              target="_blank"
+              rel="noopener"
+            >
+              アイマストドン
+            </a>
+            管理人
+          </span>
+          <span slot="description">アイマスを主な話題にするマストドン</span>
+        </DefItem>
+        <DefItem>
+          <span slot="term">
+            <a href="/creative" class="about-link">DJ / VJ</a>
+          </span>
+          <span slot="description">アイマス楽曲を中心としたDJ・VJ活動</span>
+        </DefItem>
+      </DefList>
+    </Section>
 
-    <p class="empty">準備中です。</p>
-  </main>
+    <Section title="ゲームID">
+      <DefList>
+        {
+          gameIds.map(({ label, id }) => (
+            <DefItem>
+              <span slot="term">{label}</span>
+              <CopyableText slot="description" text={id} />
+            </DefItem>
+          ))
+        }
+      </DefList>
+    </Section>
+  </PageShell>
 </Layout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 3rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-    gap: 3rem;
-  }
-
-  .page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+  .about-link {
     color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    opacity: 0.9;
   }
 
-  .back-nav {
-    display: flex;
-  }
-
-  .back-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text);
-    opacity: 0.7;
-    font-size: 0.875rem;
-    transition: opacity 0.15s;
-  }
-
-  .back-link:hover {
+  .about-link:hover {
     opacity: 1;
-    text-decoration: none;
-  }
-
-  .back-link .arrow {
-    font-size: 1rem;
-  }
-
-  .empty {
-    color: var(--color-text);
-    opacity: 0.5;
+    text-decoration: underline;
   }
 </style>

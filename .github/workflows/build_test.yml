@@ -27,4 +27,4 @@ jobs:
       - name: checksum
         run: test "`find dist/ -type f -exec sha1sum {} + | sort | sha1sum | cut -d ' ' -f 1`" = $EXPECTED_CHECKSUM
         env:
-          EXPECTED_CHECKSUM: "b36253bb3fc36e8972a7d7ec0fa321ec60972d77"
+          EXPECTED_CHECKSUM: "9f1308aa661a26a61280aa69eaa6e8b3c11721ab"

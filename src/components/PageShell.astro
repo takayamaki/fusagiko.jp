@@ -1,0 +1,82 @@
+---
+interface Props {
+  backHref: string;
+  backDirection: string;
+  backLabel?: string;
+  title: string;
+}
+
+const { backHref, backDirection, backLabel = "TOP", title } = Astro.props;
+
+const arrowMap: Record<string, string> = {
+  up: "↑",
+  down: "↓",
+  left: "←",
+  right: "→",
+};
+const arrow = arrowMap[backDirection] ?? "←";
+---
+
+<main>
+  <nav class="back-nav">
+    <a href={backHref} data-direction={backDirection} class="back-link">
+      <span class="arrow">{arrow}</span>
+      <span>{backLabel}</span>
+    </a>
+  </nav>
+
+  <header class="page-header">
+    <h1>{title}</h1>
+    <slot name="subtitle" />
+  </header>
+
+  <slot />
+</main>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+
+  .back-nav {
+    display: flex;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.875rem;
+    transition: opacity 0.15s;
+  }
+
+  .back-link:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .back-link .arrow {
+    font-size: 1rem;
+  }
+</style>
