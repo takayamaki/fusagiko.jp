@@ -1,79 +1,102 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import PageShell from "../components/PageShell.astro";
+import Section from "../components/Section.astro";
 
 const articles = (await getCollection("creative")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const events: { name: string; url: string; badge?: string }[] = [
+  { name: "DANCE MASTER", url: "https://x.com/clubimas" },
+  { name: "#トキオリ", url: "https://x.com/tokimeki_origin" },
+  { name: "Side:Mix!", url: "https://x.com/side_mix" },
+  {
+    name: "AFTER THE FESTIvα-l",
+    url: "https://x.com/va_l_dj",
+    badge: "共同主催",
+  },
+  { name: "New Beat M@STER", url: "https://x.com/nbmas_DJ" },
+  {
+    name: "アイマスDJカフェ Hajime",
+    url: "https://x.com/imasdj_hajime",
+    badge: "共同主催",
+  },
+  { name: "秘密結社D.D.D.D.", url: "https://x.com/SS_DDDD_DJ", badge: "主催" },
+];
 ---
 
 <Layout title="Creative | fusagiko" description="fusagiko の Creative ページ">
-  <main>
-    <nav class="back-nav">
-      <a href="/" data-direction="left" class="back-link">
-        <span class="arrow">←</span>
-        <span>TOP</span>
-      </a>
-    </nav>
+  <PageShell backHref="/" backDirection="left" title="Creative">
+    <p class="subtitle" slot="subtitle">DJ / VJ</p>
 
-    <header class="page-header">
-      <h1>Creative</h1>
-      <p class="subtitle">DJ / VJ</p>
-    </header>
-
-    {
-      articles.length > 0 ? (
-        <ul class="article-list">
-          {articles.map((article) => (
+    <Section title="所属イベント">
+      <ul class="event-list">
+        {
+          events.map((event) => (
             <li>
               <a
-                href={`/creative/${article.id.replace(/\.md$/, "")}`}
-                data-direction="right"
-                class="article-link"
+                href={event.url}
+                target="_blank"
+                rel="noopener"
+                class="event-link"
               >
-                <time datetime={article.data.date.toISOString()}>
-                  {article.data.date.toLocaleDateString("ja-JP", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-                <span class="article-title">{article.data.title}</span>
+                {event.name}
+                {event.badge && <span class="host-badge">{event.badge}</span>}
+                <svg
+                  class="external-icon"
+                  viewBox="0 0 24 24"
+                  width="12"
+                  height="12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
               </a>
             </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="empty">記事は準備中です。</p>
+          ))
+        }
+      </ul>
+    </Section>
+
+    {
+      articles.length > 0 && (
+        <Section title="記事">
+          <ul class="article-list">
+            {articles.map((article) => (
+              <li>
+                <a
+                  href={`/creative/${article.id.replace(/\.md$/, "")}`}
+                  data-direction="right"
+                  class="article-link"
+                >
+                  <time datetime={article.data.date.toISOString()}>
+                    {article.data.date.toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="article-title">{article.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
       )
     }
-  </main>
+  </PageShell>
 </Layout>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 3rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-    gap: 3rem;
-  }
-
-  .page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
-  }
-
   .subtitle {
     font-size: 0.875rem;
     color: var(--color-text);
@@ -81,30 +104,55 @@ const articles = (await getCollection("creative")).sort(
     letter-spacing: 0.03em;
   }
 
-  .back-nav {
+  .event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .back-link {
+  .event-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-text) 15%, transparent);
     color: var(--color-text);
-    opacity: 0.7;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    opacity: 0.85;
     transition: opacity 0.15s;
   }
 
-  .back-link:hover {
+  .event-list li:last-child .event-link {
+    border-bottom: none;
+  }
+
+  .event-link:hover {
     opacity: 1;
     text-decoration: none;
   }
 
-  .back-link .arrow {
-    font-size: 1rem;
+  .host-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+  }
+
+  .external-icon {
+    opacity: 0.45;
+    flex-shrink: 0;
   }
 
   .article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -136,10 +184,5 @@ const articles = (await getCollection("creative")).sort(
     font-size: 1rem;
     color: var(--color-text);
     line-height: 1.4;
-  }
-
-  .empty {
-    color: var(--color-text);
-    opacity: 0.5;
   }
 </style>
