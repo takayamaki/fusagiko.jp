@@ -98,8 +98,49 @@ const idols = [
         </div>
       </dl>
     </section>
+
+    <section class="gameid-section">
+      <h2 class="section-title">ゲームID</h2>
+      <dl class="about-list">
+        {[
+          { label: "学マス",         id: "LZMT5M9M"   },
+          { label: "ミリシタ",       id: "N52PNABD"   },
+          { label: "デレステ",       id: "636583127"  },
+          { label: "シャニマス (enza)", id: "irKpTHwkxf" },
+          { label: "シャニソン",     id: "KP2RKM9RH"  },
+        ].map(({ label, id }) => (
+          <div class="about-item">
+            <dt>{label}</dt>
+            <dd class="game-id">
+              <span class="game-id-value">{id}</span>
+              <span class="game-id-icon" aria-hidden="true">
+                <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+            </dd>
+          </div>
+        ))}
+
+      </dl>
+    </section>
   </main>
 </Layout>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".game-id").forEach((el) => {
+    el.addEventListener("click", async () => {
+      const value = el.querySelector(".game-id-value")?.textContent?.trim() ?? "";
+      await navigator.clipboard.writeText(value);
+      el.classList.add("copied");
+      setTimeout(() => el.classList.remove("copied"), 1500);
+    });
+  });
+</script>
 
 <style>
   main {
@@ -172,6 +213,35 @@ const idols = [
     opacity: 0.7;
   }
 
+  .game-id {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .game-id-value {
+    font-family: monospace;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  .game-id:hover .game-id-value {
+    text-decoration-color: currentColor;
+  }
+
+  .game-id-icon {
+    display: flex;
+    align-items: center;
+    opacity: 0.45;
+  }
+
+  .icon-check { display: none; }
+  .game-id.copied .icon-copy { display: none; }
+  .game-id.copied .icon-check { display: block; }
+  .game-id.copied .game-id-icon { opacity: 0.8; }
+
   .about-link {
     color: var(--color-text);
     text-decoration: underline;
@@ -185,7 +255,8 @@ const idols = [
   }
 
   .idols-section,
-  .about-section {
+  .about-section,
+  .gameid-section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
