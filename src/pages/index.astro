@@ -204,6 +204,8 @@ import Layout from "../layouts/Layout.astro";
     padding: 2.5rem 3.5rem;
     border-radius: 1rem;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
   .icon {
@@ -222,6 +224,8 @@ import Layout from "../layouts/Layout.astro";
 
   .sns-links {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 1.25rem;
     list-style: none;
@@ -248,6 +252,45 @@ import Layout from "../layouts/Layout.astro";
   .axis-left,
   .axis-right {
     flex: 1;
+  }
+
+  @media (max-width: 360px) {
+    .sns-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 1.5rem 1rem;
+    }
+
+    .card {
+      padding: 2rem 1.5rem;
+      width: 100%;
+    }
+
+    .axis-nav {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .axis-left,
+    .axis-right {
+      flex: unset;
+    }
+
+    .axis-left {
+      order: 1;
+    }
+    .axis-right {
+      order: 2;
+    }
+    .axis-down {
+      order: 3;
+    }
   }
 
   .axis-link {
