@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^5.0.0",
-    "astro": "^5.16.11",
+    "astro": "^6.0.0",
     "the-new-css-reset": "^1.11.1"
   },
   "devDependencies": {
