@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import "the-new-css-reset/css/reset.css";
 import "@fontsource/m-plus-rounded-1c";
 import "../styles/transitions.css";
+import ogInfo from "../og_info.json";
 
 export interface Props {
   title?: string;
@@ -11,6 +12,8 @@ export interface Props {
 
 const { title = "fusagiko", description = "フサギコのウェブサイト" } =
   Astro.props;
+
+const ogImageUrl = new URL("/og-image.png", ogInfo.url).toString();
 ---
 
 <!doctype html>
@@ -21,6 +24,17 @@ const { title = "fusagiko", description = "フサギコのウェブサイト" } 
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogInfo.type} />
+    <meta property="og:url" content={ogInfo.url} />
+    <meta property="og:site_name" content={ogInfo.site_name} />
+    <meta property="og:locale" content={ogInfo.locale} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
     <ViewTransitions />
   </head>
