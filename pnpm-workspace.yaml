@@ -1,4 +1,4 @@
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeExclude:
-  # Renovate security update: astro@5.18.1
-  - astro@5.18.1
+  # Renovate security update: astro@5.18.1 || 6.1.6
+  - astro@5.18.1 || 6.1.6
