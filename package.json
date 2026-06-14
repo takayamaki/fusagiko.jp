@@ -24,6 +24,6 @@
     "playwright": "1.60.0",
     "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
-    "sharp": "0.34.5"
+    "sharp": "0.35.0"
   }
 }
