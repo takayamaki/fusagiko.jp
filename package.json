@@ -21,7 +21,7 @@
     "the-new-css-reset": "^1.11.1"
   },
   "devDependencies": {
-    "playwright": "1.61.0",
+    "playwright": "1.61.1",
     "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
     "sharp": "0.35.2"
