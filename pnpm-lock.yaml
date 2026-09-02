@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@fontsource/m-plus-rounded-1c':
         specifier: ^5.0.0
-        version: 5.2.10
+        version: 5.3.0
       astro:
         specifier: ^6.0.0
         version: 6.1.1(rollup@4.60.0)
@@ -242,8 +242,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/m-plus-rounded-1c@5.2.10':
-    resolution: {integrity: sha512-PLrYoJHCBMApU8zioMT+Un6TLr6JTI7lBJWXo+t2ZNdpEn1XqZG3Y3XvNuIxdX1F3m0UqvtEbtBMHgAbTdefOw==}
+  '@fontsource/m-plus-rounded-1c@5.3.0':
+    resolution: {integrity: sha512-eB/JxJBRXLdfTsBDElsAZDMtHXM58Hf1tKkHoDVZAaUN7a+qYfwNKh4Q2f7Fk9YNg4xPFjTwooVlQyqbhi8CWQ==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -1812,7 +1812,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.4':
     optional: true
 
-  '@fontsource/m-plus-rounded-1c@5.2.10': {}
+  '@fontsource/m-plus-rounded-1c@5.3.0': {}
 
   '@img/colour@1.1.0': {}
 
